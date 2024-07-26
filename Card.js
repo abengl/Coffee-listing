@@ -1,60 +1,49 @@
-export function Card(item) {
-  const cardElement = document.createElement("div");
-  cardElement.classList.add("card");
+function createElement(tag, className, text, attributes = {}) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text) element.textContent = text;
+  for (const key in attributes) {
+    element.setAttribute(key, attributes[key]);
+  }
+  return element;
+}
 
-  const imageElement = document.createElement("img");
-  imageElement.classList.add("card__image");
-  imageElement.src = item.image;
-  imageElement.alt = `Image of a ${item.name}`;
+export function Card(item) {
+  const cardElement = createElement("div", "card");
+
+  const imageElement = createElement("img", "card__image", null, {
+    src: item.image,
+    alt: `Image of a cup of ${item.name} coffee`,
+  });
   cardElement.appendChild(imageElement);
 
   if (item.popular) {
-    const popularityElement = document.createElement("span");
-    popularityElement.classList.add("card__popularity");
-    popularityElement.textContent = "Popular";
+    const popularityElement = createElement("span", "card__popularity", "Popular");
     cardElement.appendChild(popularityElement);
   }
 
-  const nameElement = document.createElement("h2");
-  nameElement.classList.add("card__name");
-  nameElement.textContent = item.name;
+  const nameElement = createElement("h2", "card__name", item.name);
   cardElement.appendChild(nameElement);
 
-  const priceElement = document.createElement("span");
-  priceElement.classList.add("card__price");
-  priceElement.textContent = item.price;
+  const priceElement = createElement("span", "card__price", item.price);
   cardElement.appendChild(priceElement);
 
-  const ratingContainer = document.createElement("div");
-  ratingContainer.classList.add("card__rating");
+  const ratingContainer = createElement("div", "card__rating");
 
-  const starElement = document.createElement("img");
-  starElement.classList.add("card__rating__star");
+  const starElement = createElement("img", "card__rating__star", null, {
+    src: item.rating ? "./assets/Star_fill.svg" : "./assets/Star.svg",
+    alt: item.rating ? "Filled star icon" : "Empty star icon",
+  });
 
-  const ratingElement = document.createElement("span");
-  ratingElement.classList.add("card__rating__value");
+  const ratingElement = createElement("span", "card__rating__value", item.rating || "");
 
-  const votesElement = document.createElement("span");
-  ratingElement.classList.add("card__rating__votes");
+  const votesElement = createElement("span", "card__rating__votes", item.rating ? `(${item.votes} votes)` : "No raitings");
 
-  if (item.rating) {
-    starElement.src = "./assets/Star_fill.svg";
-    starElement.alt = "Filled star icon";
-    ratingElement.textContent = item.rating;
-    votesElement.textContent = `(${item.votes} votes)`;
-  } 
-  else {
-    starElement.src = "./assets/Star.svg";
-    starElement.alt = "Empty star icon";
-    votesElement.textContent = "No ratings";
-  }
   ratingContainer.append(starElement, ratingElement, votesElement);
   cardElement.appendChild(ratingContainer);
 
   if (!item.available) {
-    const availableElement = document.createElement("span");
-    availableElement.classList.add("card__available");
-    availableElement.textContent = "Sold out";
+    const availableElement = createElement("span", "card__available", "Sold out");
     cardElement.appendChild(availableElement);
   }
 
