@@ -1,15 +1,11 @@
 export function fetchData(url) {
-  return fetch(url)
+  return axios.get(url)
     .then((response) => {
-      console.log(response);
-      if (!response.ok) {
-        throw new Error("Error fetching data");
-      }
-      return response.json();
+      return response.data;
     })
     .catch((error) => {
       console.error(
-        "There has been a problem with your fetch operation:",
+        "There has been a problem with your request:",
         error
       );
       throw error;

@@ -39,50 +39,51 @@ body {
   width: 100%;
   min-height: 100vh;
   display: grid;
-  padding: 5rem 0 3rem;
-  background-image: url("./assets/bg-cafe.jpg");
+  padding: 5rem 0;
+  background-image: url("./assets/bg-cafe-min.jpg");
   background-repeat: no-repeat;
   background-size: 100% 30%;
   background-position: top center;
+  background-attachment: fixed;
 }
 
-.root__image {
-  width: 100%;
-  height: 40%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.root__content {
-  max-width: 80%;
-  padding: 4rem;
+.content {
+  width: 80%;
+  padding: 0 3rem 3rem;
   display: grid;
   row-gap: 1rem;
   place-self: center;
   place-items: center;
   border-radius: 12px;
   text-align: center;
-  background-color: var(--clr-primary-dark);
-  background-image: url("assets/vector.svg");
-  background-repeat: no-repeat;
-  background-position: 710px 170px;
-  background-attachment: scroll;
-  background-size: 22%;
+  background: var(--clr-primary-dark);
 }
 
-.root__content__tittle {
+.content__intro {
+  background-image: url("./assets/vector.svg");
+  background-size: 50%;
+  background-position: right center;
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 60%;
+}
+
+.content__tittle {
   font-size: var(--fnt-size-l);
   font-weight: 700;
+  margin: 4rem 0 1rem;
 }
 
-.root__content__description {
+.content__description {
   color: var(--clr-text-grey);
-  max-width: 60%;
+  align-self: center;
+  margin-bottom: 1rem;
 }
 
-.root__content__buttons {
+.content__buttons {
   display: flex;
   column-gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 button {
@@ -96,16 +97,78 @@ button {
   background: transparent;
   cursor: pointer;
   transition: background 0.3s ease;
+  transition: scale 0.3s ease;
 }
 
-button:hover,
-button:focus {
+#all__products {
   background: var(--clr-text-grey);
 }
 
-.root__content__cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+button:hover {
+  scale: 1.05;
+}
+
+.content__cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 0 200px;
   column-gap: 2rem;
-  row-gap: 4rem;;
+  row-gap: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .root {
+    background-size: 100% 20%;
+  }
+
+  body {
+    font-size: var(--fnt-size-s);
+  }
+
+  .content {
+    padding: 0 2rem 2rem;
+  }
+
+  .content__intro {
+    width: 75%;
+  }
+
+  button {
+    font-size: var(--fnt-size-xs) !important;
+  }
+
+  .content__cards {
+    row-gap: 3rem;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  body {
+    font-size: var(--fnt-size-xs);
+  }
+
+  .root {
+    background-size: 100% 25%;
+  }
+
+  .content__intro {
+    width: 100%;
+  }
+
+  .content__tittle {
+    font-size: 1.5rem;
+  }
+  .content__buttons {
+    column-gap: 0.5rem;
+  }
+
+  button {
+    font-size: var(--fnt-size-xxs) !important;
+  }
+
+  .content__cards {
+    row-gap: 2rem;
+  }
 }

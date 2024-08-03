@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./assets/Star_fill.svg" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/Star_fill.svg"
+      type="image/x-icon"
+    />
     <title>Coffee Listing</title>
-</head>
-<body>
+  </head>
+  <body>
     <main class="root">
-        <!--<img class="root__image" src="./assets/bg-cafe.jpg" alt="people outdoors at a coffee shop">-->
-        <section class="root__content">
-            <h1 class="root__content__tittle">Our Collection</h1>
-            <p class="root__content__description">Introducing our Coffee Collection, a selection of unique coffees from different roast types and origins, expertly roasted in small batches and shipped fresh weekly.</p>
-            <div class="root__content__buttons">
-                <button id="all__products">All Products</button>
-                <button id="available">Available Now</button>
-            </div>
-            <div class="root__content__cards" id="cards__container"></div>
-        </section>
+      <section class="content">
+        <div class="content__intro">
+          <h1 class="content__tittle">Our Collection</h1>
+          <p class="content__description">
+            Introducing our Coffee Collection, a selection of unique coffees
+            from different roast types and origins, expertly roasted in small
+            batches and shipped fresh weekly.
+          </p>
+        </div>
+        <div class="content__buttons">
+          <button id="all__products">All Products</button>
+          <button id="available">Available Now</button>
+        </div>
+        <div class="content__cards" id="cards__container"></div>
+      </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js" type="module"></script>
-</body>
+  </body>
 </html>
