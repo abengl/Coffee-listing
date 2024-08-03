@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-@import "card.css";
+@import "../component/card.css";
 
 :root {
   --fnt-size-xxs: 0.625rem; /* 10px small text*/
@@ -40,7 +40,7 @@ body {
   min-height: 100vh;
   display: grid;
   padding: 5rem 0;
-  background-image: url("./assets/bg-cafe-min.jpg");
+  background-image: url("../assets/bg-cafe-min.jpg");
   background-repeat: no-repeat;
   background-size: 100% 30%;
   background-position: top center;
@@ -60,7 +60,7 @@ body {
 }
 
 .content__intro {
-  background-image: url("./assets/vector.svg");
+  background-image: url("../assets/vector.svg");
   background-size: 50%;
   background-position: right center;
   background-repeat: no-repeat;
@@ -111,7 +111,7 @@ button:hover {
 .content__cards {
   display: flex;
   flex-wrap: wrap;
-  flex: 1 0 200px;
+  flex: 1 0 100px;
   column-gap: 2rem;
   row-gap: 4rem;
   justify-content: center;

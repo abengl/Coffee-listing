@@ -40,7 +40,7 @@ export function Card(item) {
   cardElement.appendChild(ratingContainer);
 
   const starElement = createElement("img", "card__rating__star", null, {
-    src: item.rating ? "./assets/Star_fill.svg" : "./assets/Star.svg",
+    src: item.rating ? "../assets/Star_fill.svg" : "../assets/Star.svg",
     alt: item.rating ? "Filled star icon" : "Empty star icon",
   });
 
