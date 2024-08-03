@@ -1,4 +1,4 @@
-import { Card } from "../component/Card.js";
+import { Card } from "./component/Card.js";
 import { fetchData } from "./apiService.js";
 
 function displayData(url, attribute = null) {
